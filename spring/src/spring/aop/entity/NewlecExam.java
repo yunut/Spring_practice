@@ -1,15 +1,12 @@
-package spring.di.entity;
+package spring.aop.entity;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
-@Component
+
 public class NewlecExam implements Exam {
 	
-	@Value("20")
+
 	private int kor;
 	
-	@Value("10")
 	private int eng;
 	private int math;
 	private int com;
@@ -65,14 +62,30 @@ public class NewlecExam implements Exam {
 
 	@Override
 	public int total() {
-		// TODO Auto-generated method stub
-		return kor+eng+math+com;
+		//long start = System.currentTimeMillis();
+		
+		//주 업무
+		int result = kor+eng+math+com;
+		
+		try {
+			Thread.sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//long end = System.currentTimeMillis();
+		
+		//String message = (end - start) + "ms 시간이 걸렸습니다.";
+		//System.out.println(message);
+		return result;
 	}
 
 	@Override
 	public float avg() {
-		// TODO Auto-generated method stub
-		return total() / 4.0f;
+		float result = total() / 4.0f;
+		
+		return result;
 	}
 
 

@@ -7,8 +7,7 @@ import spring.di.entity.Exam;
 
 public class GridExamConsole implements ExamConsole {
 
-	@Autowired
-	@Qualifier("exam2")
+	
 	private Exam exam;
 	
 	public GridExamConsole() {
@@ -16,7 +15,8 @@ public class GridExamConsole implements ExamConsole {
 		System.out.println("constructor");
 	}
 	
-	public GridExamConsole(Exam exam) {
+	@Autowired(required = false)
+	public GridExamConsole(@Qualifier("exam2") Exam exam) {
 		this.exam = exam;
 		System.out.println("overloaded constructor");
 	}

@@ -1,12 +1,18 @@
 package spring.di.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import spring.di.entity.Exam;
 
+@Component("console")
 public class InlineExamConsole implements ExamConsole {
-
+	
+	@Autowired
+	//@Qualifier("exam2")
 	private Exam exam;
+	
 	public InlineExamConsole() {
 		// TODO Auto-generated constructor stub
 	}
@@ -24,7 +30,7 @@ public class InlineExamConsole implements ExamConsole {
 	}
 	
 	//자동으로 객체를 연결
-	@Autowired
+	
 	@Override
 	public void setExam(Exam exam) {
 		this.exam = exam;

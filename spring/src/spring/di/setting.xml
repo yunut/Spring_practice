@@ -10,10 +10,10 @@
 		
 	
 		
-	<context:annotation-config/>
+	<context:component-scan base-package="spring.di.ui, spring.di.entity"></context:component-scan>
 	<!--  Exam exam = new NewlecExam -->
-	<bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" /> 
-	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" /> 
+	<!-- <bean id="exam1" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" /> 
+	<bean id="exam2" class="spring.di.entity.NewlecExam" p:kor="10" p:eng="10" />  -->
 	<!--  <bean id="exam" class="spring.di.entity.NewlecExam" >
 		<constructor-arg name="kor" value="10"></constructor-arg>
 		<constructor-arg name="eng" value="10"></constructor-arg>
@@ -22,10 +22,10 @@
 	</bean>
 	-->
 	<!-- ExamConsole console = new GridExamConsole(); -->
-	<bean id="console" class="spring.di.ui.GridExamConsole" >
-		<!-- console.setExam(exam) -->
-		<!--<property name="exam" ref="exam"></property>-->
-	</bean>
+	<!-- <bean id="console" class="spring.di.ui.GridExamConsole" >
+		console.setExam(exam)
+		<property name="exam" ref="exam"></property>
+	</bean> -->
 	
 	
 	

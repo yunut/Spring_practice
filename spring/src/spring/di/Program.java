@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import spring.di.entity.Exam;
@@ -24,16 +25,18 @@ public class Program {
 		*/
 		
 		//xml파일을 참조해 IoC 컨테이너를 만듦
-		ApplicationContext context = new ClassPathXmlApplicationContext("spring/di/setting.xml");
+		ApplicationContext context = new AnnotationConfigApplicationContext(NewlecDIConfig.class);
+				
+				//new ClassPathXmlApplicationContext("spring/di/setting.xml");
 		
 		//id로 객체를 꺼내올수 있음
-		//ExamConsole console = (ExamConsole) context.getBean("console");
+		ExamConsole console = (ExamConsole) context.getBean("console");
 		
 		//Exam exam = context.getBean(Exam.class);
 		//System.out.println(exam.toString());
 		
 		//ExamConsole의 인터페이스에맞는 class로 가져올수 있음
-		ExamConsole console = context.getBean(ExamConsole.class);
+		//ExamConsole console = context.getBean(ExamConsole.class);
 		console.print();
 		
 		//이름을 통해서 가져오면 형변환
